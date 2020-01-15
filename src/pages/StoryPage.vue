@@ -45,20 +45,7 @@
       </div>
       <v-divider />
       <v-container class="pa-6">
-        <v-row dense>
-          <v-col cols="12">
-            <div class="overline">
-              <v-icon small>mdi-comment</v-icon>
-              &nbsp;
-              Loading comments...
-            </div>
-          </v-col>
-        </v-row>
-        <v-row dense>
-          <v-col cols="12">
-            <v-skeleton-loader class="my-3" type="list-item-avatar-three-line" v-for="i in [0,1,2,3,4]" :key="i"/>
-          </v-col>
-        </v-row>
+        <comments-container :comments="comments"/>
       </v-container>
     </v-card>
   </base-page>
@@ -66,6 +53,7 @@
 
 <script>
 import BasePage from '../components/BasePage';
+import CommentsContainer from '../components/CommentsContainer';
 
 import hackerNews from '../utils/hacker-news';
 import dateHelpers from '../utils/date-helpers';
@@ -73,7 +61,8 @@ import domHelpers from '../utils/dom-helpers';
 
 export default {
   components: {
-    BasePage
+    BasePage,
+    CommentsContainer
   },
   props: {
     id: {

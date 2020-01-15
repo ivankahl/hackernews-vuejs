@@ -24,11 +24,11 @@
           &nbsp;
           {{ author }}
         </span>
-        <span class="mr-1" v-if="comments">
+        <!--<span class="mr-1" v-if="comments">
           <v-icon small>mdi-comment</v-icon>
           &nbsp;
           {{ comments }} comments
-        </span>
+        </span>-->
       </div>
     </v-container>
   </v-card>

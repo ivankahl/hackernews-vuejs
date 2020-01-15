@@ -32,6 +32,43 @@ async function getJobStoryIds() {
   return (await hackernewsAxios.get('/jobstories.json')).data;
 }
 
+function flattenComments(comments, subLevel) {
+  if (!subLevel) subLevel = 0;
+  
+  let flattenedComments = [];
+
+  for (const comment of comments) {
+    const parentComment = { 
+      by: comment.by,
+      id: comment.id,
+      parent: comment.parent,
+      text: comment.text,
+      time: comment.time,
+      subLevel,
+    };
+
+    flattenedComments = [
+      ...flattenedComments, 
+      parentComment,
+      ...(comment.kids ? flattenComments(comment.kids, subLevel + 1) : [])
+    ];
+  }
+
+  return flattenedComments;
+}
+
+async function getCommentAndSubcomments(kidId) {
+  const comment = await getItem(kidId);
+
+  if (comment.kids) {
+    for (let i = 0; i < comment.kids.length; i++) {
+      comment.kids[i] = await getCommentAndSubcomments(comment.kids[i]);
+    }
+  }
+
+  return comment;
+}
+
 export default {
   getItem,
   getTopStoryIds,
@@ -39,5 +76,7 @@ export default {
   getBestStoryIds,
   getAskStoryIds,
   getShowStoryIds,
-  getJobStoryIds
+  getJobStoryIds,
+  getCommentAndSubcomments,
+  flattenComments
 };
