@@ -3,7 +3,9 @@
     <the-app-bar v-model="drawer"/>
     <the-navigation-drawer v-model="drawer"/>
     <v-content>
-      <router-view/>
+      <transition name="fade" mode="out-in">
+        <router-view/>
+      </transition>
     </v-content>
   </v-app>
 </template>
@@ -27,3 +29,17 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.15s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
+}
+</style>

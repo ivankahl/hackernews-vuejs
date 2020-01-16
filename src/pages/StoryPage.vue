@@ -48,6 +48,7 @@
         <comments-container :comments="comments"/>
       </v-container>
     </v-card>
+    <v-skeleton-loader v-else type="article,list-item-avatar-three-line,list-item-avatar-three-line,list-item-avatar-three-line" />
   </base-page>
 </template>
 

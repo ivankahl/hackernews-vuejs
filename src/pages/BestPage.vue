@@ -1,5 +1,5 @@
 <template>
-  <stories-page name="top" get-action="stories/getTopStories" />
+  <stories-page name="best" get-action="stories/getBestStories" />
 </template>
 
 <script>
