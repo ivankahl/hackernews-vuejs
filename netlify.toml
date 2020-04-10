@@ -7,6 +7,21 @@
   HN_VERSION = "v0"
 
 [[redirects]]
+  from = "/api/stories/*"
+  to = "/.netlify/functions/getStories/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/api/feeds/:name"
+  to = "/.netlify/functions/getFeeds/:name"
+  status = 200
+
+[[redirects]]
+  from = "/api/story/:id"
+  to = "/.netlify/functions/getStory/:id"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/"
   status = 200
