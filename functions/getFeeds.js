@@ -5,6 +5,6 @@ exports.handler = async (event, context) => {
 
   return {
     statusCode: 200,
-    body: `${process.env.HN_DATABASE_URL} ${process.env.HN_VERSION}`
+    body: `${process.env.HN_DATABASE_URL} ${process.env.HN_VERSION} ${event.name}`
   }
 }
