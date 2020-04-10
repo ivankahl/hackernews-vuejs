@@ -1,3 +1,11 @@
+[build]
+  functions = "functions/"
+  command = "npm run build"
+
+[build.environment]
+  HN_DATABASE_URL = "https://hacker-news.firebaseio.com"
+  HN_VERSION = "v0"
+
 [[redirects]]
   from = "/*"
   to = "/"
