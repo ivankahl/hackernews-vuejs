@@ -3,8 +3,7 @@
   command = "npm run build"
 
 [build.environment]
-  HN_DATABASE_URL = "https://hacker-news.firebaseio.com"
-  HN_VERSION = "v0"
+  HN_DATABASE_URL = "https://hacker-news.firebaseio.com/v0"
 
 [[redirects]]
   from = "/api/stories/*"
