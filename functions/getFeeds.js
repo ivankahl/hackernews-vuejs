@@ -33,7 +33,7 @@ exports.handler = async (event, context) => {
   } catch(e) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: e.toString() })
+      body: JSON.stringify({ error: 'An unknown error occurred while retrieving the specified feed.' })
     };
   } 
 }
